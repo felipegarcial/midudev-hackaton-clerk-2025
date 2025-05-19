@@ -1,9 +1,9 @@
 import { UserButton } from "@clerk/clerk-react";
 
-export const Onboarding = () => {
+export const Feed = () => {
   return (
     <>
-      <h1>Onboarding</h1>
+      <h1>Feed</h1>
       <UserButton />
     </>
   )

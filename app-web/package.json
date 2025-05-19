@@ -12,8 +12,12 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.31.4",
     "@clerk/react-router": "^1.4.4",
+    "framer-motion": "^12.12.1",
+    "install": "^0.13.0",
+    "npm": "^11.4.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
