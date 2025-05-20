@@ -1,6 +1,6 @@
 import { useUser } from "@clerk/clerk-react";
 import { Navigate, useLocation, Routes, Route } from "react-router-dom";
-import { Auth, Feed, Onboarding, Profile } from "./routes";
+import { Auth, Home, Onboarding, Profile } from "./routes";
 
 export default function App() {
   const location = useLocation();
@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Feed />} />
+      <Route path="/" element={<Home />} />
       <Route path="/onboarding" element={<Onboarding />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/auth" element={<Auth />} />
