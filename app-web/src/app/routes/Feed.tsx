@@ -1,6 +1,6 @@
 import { UserButton } from "@clerk/clerk-react";
 
-export const Feed = () => {
+export function Feed() {
   return (
     <>
       <h1>Feed</h1>

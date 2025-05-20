@@ -1,10 +1,9 @@
-import { SignIn } from "@clerk/clerk-react"
+import { SignIn } from "@clerk/clerk-react";
 
-export const Auth = () => {
-    return (
-      <div>
-              <SignIn />
-      </div>
-    )
-  }
-  
+export function Auth() {
+  return (
+    <div>
+      <SignIn />
+    </div>
+  );
+};
