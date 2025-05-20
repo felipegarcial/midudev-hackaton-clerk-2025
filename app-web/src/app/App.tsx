@@ -1,41 +1,34 @@
 import { useUser } from "@clerk/clerk-react";
-import { useEffect } from "react";
 import { Navigate, useLocation, Routes, Route } from "react-router-dom";
-import { useUserStore } from "../stores/userStore";
 import { Auth, Feed, Onboarding, Profile } from "./routes";
 
 export default function App() {
   const location = useLocation();
   const { user, isLoaded, isSignedIn } = useUser();
-  const { setUser, clearUser, loading, authenticated, onboardingCompleted } = useUserStore();
 
-  // Sync Clerk user into Zustand
-  useEffect(() => {
-    if (!isLoaded) return;
-
-    if (isSignedIn && user) {
-      setUser(user);
-    } else {
-      clearUser();
-    }
-  }, [isLoaded, isSignedIn]);
-
-  // 1. Esperar que Clerk cargue
-  if (!isLoaded || loading) {
+  if (!isLoaded) {
     return <p className="text-white p-4">Loading...</p>;
   }
-
-  // 2. No autenticado → redirigir al login
-  if (!authenticated && location.pathname !== "/auth") {
+  if (!isSignedIn && !user && location.pathname !== "/auth") {
     return <Navigate to="/auth" replace />;
   }
 
-  // 3. Autenticado pero no ha hecho onboarding
-  if (authenticated && !onboardingCompleted && location.pathname !== "/onboarding") {
+  if (
+    isSignedIn &&
+    !user?.publicMetadata?.isOnboardingCompleted &&
+    location.pathname !== "/onboarding"
+  ) {
     return <Navigate to="/onboarding" replace />;
   }
 
-  // 4. Autenticado y con onboarding → renderizar rutas
+  if (
+    isSignedIn &&
+    user?.publicMetadata?.isOnboardingCompleted &&
+    location.pathname === "/onboarding"
+  ) {
+    return <Navigate to="/" replace />;
+  }
+
   return (
     <Routes>
       <Route path="/" element={<Feed />} />

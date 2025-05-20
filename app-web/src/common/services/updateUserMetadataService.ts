@@ -1,10 +1,11 @@
-export async function updateUserMetadata(token: string, data: {
+
+export async function updateUserMetadataService(token: string, data: {
     city: string;
     country: string;
     language: string;
     latitude: number;
     longitude: number;
-    onboardingCompleted: boolean;
+    isOnboardingCompleted: boolean;
   }) {
     const response = await fetch("http://localhost:3000/api/update-metadata", {
       method: "POST",
@@ -19,7 +20,7 @@ export async function updateUserMetadata(token: string, data: {
       const error = await response.json();
       throw new Error(error.message || "Error al actualizar metadatos");
     }
-  
+    
     return response.json();
   }
   

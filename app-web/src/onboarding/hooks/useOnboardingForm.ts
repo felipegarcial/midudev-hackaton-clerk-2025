@@ -1,19 +1,17 @@
 import { useUser, useAuth } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { onboardingSchema } from "../schema/onboardingSchema";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
 import { useLocationAutocomplete } from "./useLocationAutocomplete";
-import { updateUserMetadata } from "../../common/services/";
+import { updateUserMetadataService } from "../../common/services/updateUserMetadataService";
 
 type FormValues = z.infer<typeof onboardingSchema>;
 
 export function useOnboardingForm() {
   const { user } = useUser();
   const { getToken } = useAuth();
-  const navigate = useNavigate();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(onboardingSchema),
@@ -47,14 +45,16 @@ export function useOnboardingForm() {
 
     const token = await getToken();
 
-    await updateUserMetadata(token!, {
+    await updateUserMetadataService(token!, {
       city: data.city,
       country: data.country,
       language: navigator.language || "es",
       latitude: data.latitude,
       longitude: data.longitude,
-      onboardingCompleted: true,
+      isOnboardingCompleted: true,
     });
+
+    await user?.reload()  
   };
 
   return {

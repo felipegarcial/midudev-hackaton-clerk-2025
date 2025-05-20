@@ -12,15 +12,19 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.31.4",
     "@clerk/react-router": "^1.4.4",
+    "firebase": "^11.8.0",
     "framer-motion": "^12.12.1",
     "install": "^0.13.0",
     "npm": "^11.4.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.6.0"
+    "react-router-dom": "^7.6.0",
+    "zustand": "^5.0.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@hookform/resolvers": "^5.0.1",
+    "@react-google-maps/api": "^2.20.6",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
@@ -31,8 +35,6 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5",
-    "@hookform/resolvers": "^5.0.1",
-    "@react-google-maps/api": "^2.20.6",
     "yup": "^1.6.1",
     "zod": "^3.25.7"
   }
