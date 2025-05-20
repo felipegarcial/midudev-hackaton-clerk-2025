@@ -4,7 +4,7 @@ export function useCheckOnboarding() {
   const { user, isLoaded } = useUser()
 
   if (!isLoaded || !user) {
-    return { isLoading: true, authenticated: false, onboardingCompleted: false }
+    return { isLoading: false, authenticated: false, onboardingCompleted: false }
   }
 
   const onboardingCompleted = user.publicMetadata?.onboardingCompleted === true
