@@ -10,13 +10,12 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/api/update-metadata", requireAuth(), async (req, res) => {
-  console.log("CLERK_SECRET_KEY:", process.env.CLERK_SECRET_KEY);
   const { userId } = req.auth;
 
-  const { city, country } = req.body;
+  const { birthdate, city, country, isOnboardingCompleted, language, latitude, longitude } = req.body;
 
   await clerkClient.users.updateUser(userId, {
-    publicMetadata: { city, country, onboardingCompleted: true },
+    publicMetadata: { birthdate, city, country, isOnboardingCompleted, language, latitude, longitude },
   });
 
   res.json({ success: true });
