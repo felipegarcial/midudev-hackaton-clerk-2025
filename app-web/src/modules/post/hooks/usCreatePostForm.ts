@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useCreatePost } from "../../store/firebase/hooks/useCreatePost";
+import { useCreatePost } from "../../../store/firebase/hooks/useCreatePost";
 import { z } from "zod";
 import { useGeoLocation } from "./useGeoLocation";
 import { postSchema } from "../schema/postSchema";

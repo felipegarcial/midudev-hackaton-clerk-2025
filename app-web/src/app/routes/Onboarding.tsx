@@ -1,5 +1,5 @@
 import { UserButton } from "@clerk/clerk-react";
-import { OnboardingForm } from "../../onboarding/components/OnboardingForm";
+import { OnboardingForm } from "../../modules/onboarding/components/OnboardingForm";
 
 export function Onboarding() {
   return (

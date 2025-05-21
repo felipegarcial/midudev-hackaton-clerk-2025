@@ -5,7 +5,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
 import { useLocationAutocomplete } from "./useLocationAutocomplete";
-import { updateUserMetadataService } from "../../common/services/updateUserMetadataService";
+import { updateUserMetadataService } from "../../../common/services/updateUserMetadataService";
 
 type FormValues = z.infer<typeof onboardingSchema>;
 

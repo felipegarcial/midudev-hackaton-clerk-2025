@@ -1,7 +1,7 @@
 import { useCreatePostForm } from "../hooks/usCreatePostForm";
 
 
-export function CreatePostForm({ userId, userName }: { userId: string; userName?: string }) {
+export function CreatePostForm() {
   const {
     form: { register, handleSubmit, formState: { errors } },
     onSubmit,
@@ -9,7 +9,7 @@ export function CreatePostForm({ userId, userName }: { userId: string; userName?
     error,
     activityTypes,
     locationReady,
-  } = useCreatePostForm(userId, userName);
+  } = useCreatePostForm();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md mx-auto">
